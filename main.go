@@ -1,0 +1,5 @@
+package gompiler
+
+func main() {
+
+}
