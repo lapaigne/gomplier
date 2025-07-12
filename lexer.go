@@ -62,7 +62,7 @@ func (l *Lexer) getToken() (Token, error) {
 	case rune(0):
 		t = Token{text: string(l.char), cat: EOF}
 	default:
-		return Token{}, errors.New("UNKNOWN TOKEN")
+		return Token{cat: UNKNOWN}, errors.New("UNKNOWN TOKEN")
 	}
 
 	l.next()

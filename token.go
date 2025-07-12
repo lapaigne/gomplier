@@ -1,15 +1,14 @@
 package main
 
 const (
-	EOF = iota - 1
+	UNKNOWN = iota - 2
+	EOF
 	NEWLINE
 	NUMBER
 	IDENT
 	STRING
-)
 
-const (
-	LABEL = iota + 101
+	LABEL
 	GOTO
 	PRINT
 	INPUT
@@ -20,10 +19,8 @@ const (
 	WHILE
 	REPEAT
 	ENDWHILE
-)
 
-const (
-	EQ = iota + 201
+	EQ
 	PLUS
 	MINUS
 	ASTERISK

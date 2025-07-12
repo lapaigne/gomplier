@@ -12,7 +12,6 @@ func main() {
 	token, err := lexer.getToken()
 	if err != nil {
 		fmt.Println(err)
-		fmt.Println("TERMINATING")
 		return
 	}
 
@@ -22,7 +21,6 @@ func main() {
 
 		if err != nil {
 			fmt.Println(err)
-			fmt.Println("TERMINATING")
 			return
 		}
 	}
