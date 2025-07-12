@@ -4,17 +4,26 @@ import "fmt"
 
 func main() {
 
-	source := "+-*/"
+	source := "+- */"
 
 	var lexer Lexer
 	lexer.init(source)
 
-	token := lexer.getToken()
-
-	fmt.Println(lexer.char)
+	token, err := lexer.getToken()
+	if err != nil {
+		fmt.Println(err)
+		fmt.Println("TERMINATING")
+		return
+	}
 
 	for token.cat != EOF {
 		fmt.Println(token.cat)
-		token = lexer.getToken()
+		token, err = lexer.getToken()
+
+		if err != nil {
+			fmt.Println(err)
+			fmt.Println("TERMINATING")
+			return
+		}
 	}
 }

@@ -1,5 +1,7 @@
 package main
 
+import "errors"
+
 type Lexer struct {
 	src  []rune
 	char rune
@@ -42,7 +44,7 @@ func (l Lexer) skipComment() {
 
 }
 
-func (l *Lexer) getToken() Token {
+func (l *Lexer) getToken() (Token, error) {
 
 	var t Token
 
@@ -60,8 +62,9 @@ func (l *Lexer) getToken() Token {
 	case rune(0):
 		t = Token{text: string(l.char), cat: EOF}
 	default:
+		return Token{}, errors.New("UNKNOWN TOKEN")
 	}
 
 	l.next()
-	return t
+	return t, nil
 }
